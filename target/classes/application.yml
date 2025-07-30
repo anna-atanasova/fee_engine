@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:sqlite:fee_engine.db
+    driver-class-name: org.sqlite.JDBC
+  jpa:
+    database-platform: org.hibernate.community.dialect.SQLiteDialect
+    hibernate:
+      ddl-auto: update
+  sql:
+    init:
+      mode: always
+  jackson:
+    serialization:
+      INDENT_OUTPUT: true
+server:
+  port: 8080
