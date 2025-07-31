@@ -65,7 +65,8 @@
             <artifactId>hibernate-community-dialects</artifactId>
             <version>6.3.1.Final</version>
         </dependency>
-    </dependencies>
+
+	</dependencies>
 
 	<build>
 		<plugins>

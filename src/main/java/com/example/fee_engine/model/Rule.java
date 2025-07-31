@@ -1,24 +1,49 @@
 package com.example.fee_engine.model;
 
 import jakarta.persistence.*;
-import jakarta.persistence.GeneratedValue;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Data
+@Getter
+@Setter
 public class Rule {
     @Id
-    @GeneratedValue
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String name;
     private String description;
+    private String type;
     private String condition;
-    private String expression;
 
     public Rule(){}
 
-    public Rule(String description, String condition, String expression){
+    public Rule(String name, String description, String type, String condition){
+        this.name = name;
         this.description = description;
+        this.type = type;
         this.condition = condition;
-        this.expression = expression;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public String getDescription(){
+        return description;
+    }
+
+    public String getType(){
+        return type;
+    }
+
+    public String getCondition(){
+        return condition;
     }
 }
