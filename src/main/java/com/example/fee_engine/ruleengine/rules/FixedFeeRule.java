@@ -3,22 +3,25 @@ package com.example.fee_engine.ruleengine.rules;
 import com.example.fee_engine.model.Rule;
 import com.example.fee_engine.model.Transactions;
 import com.example.fee_engine.ruleengine.FeeRule;
+import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
-
+@Component
 public class FixedFeeRule implements FeeRule {
+
+
     @Override
-    public boolean applies(Transactions tx, Rule rule) {
-        return tx.getType().equalsIgnoreCase("POS");
+    public boolean appliesTo(Transactions transaction) {
+        return true;
     }
 
     @Override
-    public BigDecimal calculate(Transactions tx, Rule rule) {
-        if(tx.getAmount().compareTo(BigDecimal.valueOf(100)) <= 0){
-            return BigDecimal.valueOf(0.20);
-        }
-        else{
-            return tx.getAmount().multiply(BigDecimal.valueOf(0.002));
-        }
+    public BigDecimal apply(Transactions transaction) {
+        return new BigDecimal("1.00");
+    }
+
+    @Override
+    public String getName() {
+        return "FixedFeeRule";
     }
 }

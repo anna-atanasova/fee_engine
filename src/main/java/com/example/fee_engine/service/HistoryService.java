@@ -12,4 +12,8 @@ public interface HistoryService {
     List<FeeCalculationHistory> findAll();
     Optional<FeeCalculationHistory> findById(Long id);
     List<FeeCalculationHistory> findByTransactionId(String transactionId);
+
+    List<FeeCalculationHistory> getAllHistory();
+
+    FeeCalculationHistory getHistoryByTransactionId(String transactionId);
 }

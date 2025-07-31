@@ -6,8 +6,9 @@ import jakarta.transaction.Transaction;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-@Service
+
 public interface FeeRule {
-    boolean applies(Transactions tx, Rule rule);
-    BigDecimal calculate(Transactions tx, Rule rule);
+    boolean appliesTo(Transactions transaction);
+    BigDecimal apply(Transactions transaction);
+    String getName();
 }

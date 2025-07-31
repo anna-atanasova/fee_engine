@@ -12,4 +12,6 @@ public interface RuleService {
     Optional<Rule> findById(Long id);
     List<Rule> getAllRules();
     Optional<Rule> save(Rule rule);
+    Optional<Rule> update(Long id, Rule rule);
+    void delete(Long id);
 }

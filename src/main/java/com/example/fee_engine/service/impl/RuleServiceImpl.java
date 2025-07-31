@@ -30,4 +30,24 @@ public class RuleServiceImpl implements RuleService {
     public Optional<Rule> save(Rule rule) {
         return Optional.of(ruleRepository.save(rule));
     }
+
+    @Override
+    public Optional<Rule> update(Long id, Rule rules) {
+        Optional<Rule> optionalRule = ruleRepository.findById(id);
+        if(optionalRule.isPresent()){
+            Rule existingRule = optionalRule.get();
+            existingRule.setName(rules.getName());
+            existingRule.setDescription(rules.getDescription());
+            existingRule.setType(rules.getType());
+            existingRule.setCondition(rules.getCondition());
+            return Optional.of(ruleRepository.save(existingRule));
+        } else {
+            throw new RuntimeException("Rule with id " + id + " not found");
+        }
+    }
+
+    @Override
+    public void delete(Long id) {
+        ruleRepository.deleteById(id);
+    }
 }

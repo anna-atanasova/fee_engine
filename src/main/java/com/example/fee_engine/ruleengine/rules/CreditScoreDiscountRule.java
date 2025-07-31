@@ -5,17 +5,23 @@ import com.example.fee_engine.model.Transactions;
 import com.example.fee_engine.ruleengine.FeeRule;
 import jakarta.persistence.Entity;
 import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
-
+@Component
 public class CreditScoreDiscountRule implements FeeRule {
     @Override
-    public boolean applies(Transactions tx, Rule rule) {
-        return tx.getCreditScore() > 400;
+    public boolean appliesTo(Transactions transaction) {
+        return transaction.getCreditScore() >= 700;
     }
 
     @Override
-    public BigDecimal calculate(Transactions tx, Rule rule) {
-        return tx.getAmount().multiply(BigDecimal.valueOf(-0.01));
+    public BigDecimal apply(Transactions transaction) {
+        return new BigDecimal("-0.25");
+    }
+
+    @Override
+    public String getName() {
+        return "CreditScoreDiscountRule";
     }
 }

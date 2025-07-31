@@ -35,4 +35,14 @@ public class HistoryServiceImpl implements HistoryService {
     public List<FeeCalculationHistory> findByTransactionId(String transactionId) {
         return historyRepository.findByTransactionId(transactionId);
     }
+
+    @Override
+    public List<FeeCalculationHistory> getAllHistory() {
+        return historyRepository.findAll();
+    }
+
+    @Override
+    public FeeCalculationHistory getHistoryByTransactionId(String transactionId) {
+        return (FeeCalculationHistory) historyRepository.findByTransactionId(transactionId);
+    }
 }

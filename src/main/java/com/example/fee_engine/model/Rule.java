@@ -17,6 +17,7 @@ public class Rule {
     private String description;
     private String type;
     private String condition;
+    private String action;
 
     public Rule(){}
 
@@ -34,16 +35,26 @@ public class Rule {
     public String getName(){
         return name;
     }
-
+    public void setName(String name) {
+        this.name = name;
+    }
     public String getDescription(){
         return description;
     }
-
+    public void setDescription(String description){
+        this.description = description;
+    }
     public String getType(){
         return type;
     }
-
+    public void setType(String type){
+        this.type = type;
+    }
     public String getCondition(){
         return condition;
     }
+    public void setCondition(String condition){
+        this.condition = condition;
+    }
+    public String getAction(){return action; }
 }
