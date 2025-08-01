@@ -10,16 +10,16 @@ import java.math.BigDecimal;
 public class ECommerceRule implements FeeRule {
     @Override
     public boolean appliesTo(Transactions transaction) {
-        return transaction.getCreditScore() >= 700;
+        return "e-commerce".equalsIgnoreCase(transaction.getType());
     }
 
     @Override
     public BigDecimal apply(Transactions transaction) {
-        return new BigDecimal("-0.25"); // discount
+        return new BigDecimal("0.50");
     }
 
     @Override
     public String getName() {
-        return "CreditScoreDiscountRule";
+        return "ECommerceRule";
     }
 }

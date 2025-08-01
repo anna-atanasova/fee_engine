@@ -1,10 +1,8 @@
 package com.example.fee_engine.ruleengine.rules;
 
-import com.example.fee_engine.model.Rule;
 import com.example.fee_engine.model.Transactions;
 import com.example.fee_engine.ruleengine.FeeRule;
-import jakarta.persistence.Entity;
-import org.springframework.context.annotation.Bean;
+
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
